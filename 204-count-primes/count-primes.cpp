@@ -3,10 +3,10 @@ public:
  int countPrimes(int n) {
      if(n<=2) return 0 ; 
      vector<bool>prime(n,true) ; // initially all are prime asssume 
-     prime[0]= false ; 
+     prime[0]= false ; //we know are not  0 and 1 is prime so make them false 
      prime[1] = false ; 
 
-     for(int i = 0 ; i*i<n ; i++){
+     for(int i = 2 ; i*i<n ; i++){
         if(prime[i]){ //when prime 
         for(int j = i*i ; j< n ; j=i+j){ // when that num is prime make rest factors of that num prime j=j+i to move to each factor 
         prime[j] = false ; 
