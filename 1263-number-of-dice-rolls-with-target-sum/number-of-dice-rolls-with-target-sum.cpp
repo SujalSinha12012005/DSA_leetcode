@@ -1,7 +1,7 @@
 class Solution {
 public:
     int mod = 1e9 +7 ; 
-    int solve(int n, int k, int target , vector <vector<int>>&dp){
+    /*int solve(int n, int k, int target , vector <vector<int>>&dp){
 
         if(n==0){
             if(target==0){//base case when num of dice&target is 0 found a combination so 1 way
@@ -22,9 +22,23 @@ public:
         }
         return dp[n][target]=ways ; 
 
-    }
+    }*/
+
     int numRollsToTarget(int n, int k, int target) {
-        vector<vector<int>>dp(n+1, vector<int>(target+1 , -1)); 
-        return solve (n , k , target, dp ); 
+    
+        vector<vector<int>>dp(n+1, vector<int>(target+1 , 0)); 
+        dp[0][0] = 1 ; 
+        for(int d =1 ; d<=n ; d++){
+            for(int t =0 ; t<=target ; t++){
+                for(int i = 1 ; i<=k ; i++ ){
+                    if(t>=i){
+                      dp[d][t] = (dp[d][t] + dp[d-1][t-i]) % mod;
+                    } 
+                }
+                
+            }
+        }
+        return dp[n][target]; 
+        // return solve (n , k , target, dp ); 
     }
 };
