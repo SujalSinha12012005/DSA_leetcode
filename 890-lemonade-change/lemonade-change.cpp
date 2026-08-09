@@ -11,8 +11,9 @@ public:
             if(five ==0){//u need to give five but you've no notes so false 
                 return false ; 
             }
-            five -- ;  //five notes given as change son reduce 
             ten ++ ; // ten notes give so increase 
+            five -- ;  //five notes given as change son reduce 
+           // ten ++ ; // ten notes give so increase 
 
             }
 
